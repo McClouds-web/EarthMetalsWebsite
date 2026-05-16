@@ -1,0 +1,107 @@
+<!DOCTYPE html><html class="backend"><!-- START Head --><head>
+    <!-- START META SECTION -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/touch/apple-touch-icon-57x57-precomposed.png">
+    <!--/ END META SECTION -->
+    <!-- START STYLESHEETS -->
+    <!-- Plugins stylesheet : optional -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="animate.css">
+    <!--/ Plugins stylesheet : optional -->
+    <!-- Application stylesheet : mandatory -->
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="uielement.css">
+    <!--/ Application stylesheet -->
+    <!-- Theme stylesheet : optional -->
+    <!--/ Theme stylesheet : optional -->
+
+    <!-- END STYLESHEETS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="bootstrap-yii.css">
+<link rel="stylesheet" type="text/css" href="jquery-ui-bootstrap.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-noconflict.js"></script>
+<script type="text/javascript" src="../js/bootbox.min.js"></script>
+<script type="text/javascript" src="../js/notify.min.js"></script>
+</head>
+  <!--/ END Head -->
+  <!-- START Body -->
+  <body data-baseurl="../../">
+    <!-- START Template Main -->
+    <section id="main" role="main">
+     <!-- START Template Container -->
+<div class="container animation delay animating fadeInDown">
+    <!-- START row -->
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="panel panel-minimal" style="margin-top:10%;">
+                <!-- Upper Text -->
+                <div class="panel-body text-center">
+                    <i class="ico-database3 longshadow fsize112 text-default"></i>
+                </div>
+                <div class="panel-body text-center">
+                    <h1 class="semibold longshadow text-center text-default fsize32 mb10 mt0">SOMETHING WENT WRONG!!</h1>
+                    <h4 class="semibold text-primary text-center nm"></h4>
+                </div>
+                <!--/ Upper Text -->
+                <!-- Button -->
+                <div class="panel-body text-center">
+                                            <a href="../page.html" class="btn btn-default mb5">Take Me Back</a>
+                                    </div>
+                <!--/ Button -->
+            </div>
+        </div>
+    </div>
+    <!--/ END row -->
+</div>
+<!--/ END Template Container -->    </section>
+    <!--/ END Template Main -->
+    <!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+    <!-- Application and vendor script : mandatory -->
+    <script type="text/javascript">
+      document.createElement('picture');
+    </script>
+
+    <!--/ Application and vendor script : mandatory -->
+    <!-- Plugins and page level script : optional -->
+    <!--/ Plugins and page level script : optional -->
+  <script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('[data-toggle=popover]').popover();
+jQuery('body').tooltip({"selector":"[data-toggle=tooltip]"});
+
+                window.cueWidgetConfig = {
+                    id: 'dd01d7fe-866f-496c-b1a0-8f55774eabd0',
+                    onReady: function () {
+                       // Set custom data to be included in a new session
+                       CueWidget.updateInitialSessionData({
+                           siteUrl: 'www.earth-metals.com',
+                       });
+                    }
+                };
+                
+                var s = document.createElement('script');
+                s.dataset.cueWidgetScript = 'true';
+                
+                if (window.requirejs && window.requirejs.defined) {
+                    s.src = 'https://webchat.cuedesk.com/widget.iife.js';
+                } else {
+                    s.src = 'https://webchat.cuedesk.com/widget.js';
+                }
+                document.head.appendChild(s);
+            
+});
+/*]]>*/
+</script>
+
+  
+</body><!--/ END Body --></html>

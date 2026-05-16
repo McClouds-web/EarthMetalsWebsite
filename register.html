@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Metals | Lead Entry System</title>
+    <meta name="description" content="Earth Metals B2B Lead Capture System">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #454545;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* HEADER NAV */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eaeaea;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            transition: filter 0.3s ease;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #121212;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: #454545;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #41A648; }
+        /* Fallback if logo fails to load */
+        .header-logo span {
+            color: #41A648;
+        }
+
+        /* MAIN WRAPPER */
+        #main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            background: #fdfdfd;
+            transition: filter 0.3s ease;
+        }
+        
+        /* Apply blur when modal is open */
+        body.modal-open #main-content,
+        body.modal-open header,
+        body.modal-open footer {
+            filter: blur(8px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .entry-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        /* LEFT PANEL */
+        .entry-panel-left {
+            flex: 1.1;
+            background: linear-gradient(135deg, #41A648 0%, #2d7a33 100%);
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        .entry-panel-left::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 250px; height: 250px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 50%;
+        }
+        .entry-panel-left::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: -40px;
+            width: 180px; height: 180px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .left-content { position: relative; z-index: 1; }
+        .left-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+        .left-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .left-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .left-feature span.iconify {
+            color: #FFCD05;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .left-feature p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* HERO CLASSES */
+        .hero-content-wrapper { height: 100%; display: flex; flex-direction: column; }
+        .hero-title { font-size: clamp(2.2rem, 4vw, 2.8rem); margin-bottom: clamp(16px, 3vw, 24px); line-height: 1.15; letter-spacing: -0.5px; font-weight: 700; color: white; }
+        .hero-desc { font-size: clamp(1.05rem, 1.5vw, 1.15rem); margin-bottom: 50px; color: rgba(255,255,255,0.95); line-height: 1.6; }
+        .hero-feature-list {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .hero-feature-item:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateX(5px);
+        }
+        .hero-feature-item span.iconify {
+            font-size: 1.4rem;
+            color: #FFCD05;
+            flex-shrink: 0;
+        }
+        .hero-feature-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .hero-support { margin-top: 10px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .hero-support p { font-size: clamp(0.85rem, 1vw, 0.95rem); color: rgba(255,255,255,0.85); margin: 0; display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
+        .hero-support span.iconify { font-size: 1.4rem; flex-shrink: 0; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+        /* RIGHT PANEL (SELECTION) */
+        .entry-panel-right {
+            flex: 1;
+            background: #ffffff;
+            padding: 60px 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .entry-panel-right h3 {
+            color: #121212;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .entry-panel-right .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        /* SELECTION BUTTONS */
+        .intent-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .intent-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+        .intent-btn:hover {
+            border-color: #41A648;
+            background: #f0fdf2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(65, 166, 72, 0.1);
+        }
+        .intent-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .intent-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #121212;
+            font-family: 'Poppins', sans-serif;
+        }
+        .intent-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .intent-icon {
+            font-size: 1.8rem;
+            color: #41A648;
+            background: white;
+            border-radius: 50%;
+            padding: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* MODAL OVERLAY */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+        body.modal-open .modal-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* MODAL CONTENT */
+        .modal-content {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        body.modal-open .modal-content {
+            transform: translateY(0) scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: #f1f1f1;
+            border: none;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.2s;
+        }
+        .modal-close:hover {
+            background: #e0e0e0;
+            color: #121212;
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 30px;
+        }
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #121212;
+            margin-bottom: 8px;
+        }
+        .modal-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .intent-badge {
+            display: inline-block;
+            background: #e6f6e7;
+            color: #2d7a33;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* FORM STYLES */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        
+        .form-group label {
+            display: block;
+            color: #454545;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .form-group label span {
+            color: #aaa;
+            font-weight: 400;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #121212;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.2s;
+            outline: none;
+        }
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #41A648;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(65,166,72,0.05);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* MULTI-SELECT CHIPS */
+        .equipment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .equip-chip {
+            background: #f1f1f1;
+            border: 1px solid #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .equip-chip.selected {
+            background: #41A648;
+            color: white;
+            border-color: #41A648;
+        }
+
+        /* BUTTON */
+        .em-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+        }
+        .em-btn-primary {
+            background-color: #41A648;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(65, 166, 72, 0.2);
+        }
+        .em-btn-primary:hover {
+            background-color: #358f3d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(65, 166, 72, 0.3);
+        }
+
+        /* CONFIRMATION STATE */
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #41A648;
+            margin-bottom: 20px;
+        }
+        .success-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #121212;
+        }
+        .success-message p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #eee;
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.9rem;
+            transition: filter 0.3s ease;
+        }
+
+        /* SCROLLBAR */
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .modal-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .modal-content::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+        /* RESPONSIVE BREAKPOINTS */
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .entry-wrapper { max-width: 1100px; }
+            #main-content { padding: 140px 20px 100px; }
+        }
+
+        /* Tablet Landscape & Small Desktop */
+        @media (max-width: 1023px) {
+            .entry-wrapper { max-width: 800px; flex-direction: column; }
+            .entry-panel-left { padding: 50px 40px; flex: auto; }
+            .entry-panel-right { padding: 50px 40px; }
+            .hero-feature-box { margin-bottom: 20px; }
+            .hero-support { padding-top: 20px; }
+        }
+
+        /* Tablet Portrait & Foldables */
+        @media (max-width: 767px) {
+            .nav-links { display: none !important; }
+            #main-content { padding: 100px 15px 60px; }
+            .entry-wrapper { border-radius: 16px; }
+            .entry-panel-left::before, .entry-panel-left::after { display: none; } /* Clean up visuals for small screens */
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            .modal-content { width: 95%; padding: 30px 25px; max-height: 85vh; }
+            .modal-close { top: 15px; right: 15px; }
+            .intent-btn { padding: 18px 20px; }
+        }
+
+        /* Mobile Large */
+        @media (max-width: 599px) {
+            .entry-panel-left { padding: 40px 25px; }
+            .entry-panel-right { padding: 40px 25px; }
+            .intent-title { font-size: 1.05rem; }
+            .intent-desc { font-size: 0.85rem; }
+            .intent-icon { font-size: 1.5rem; padding: 8px; }
+            .entry-panel-right h3 { font-size: 1.5rem; }
+        }
+
+        /* Mobile Standard */
+        @media (max-width: 424px) {
+            .entry-panel-left { padding: 30px 20px; }
+            .entry-panel-right { padding: 30px 20px; }
+            .modal-content { padding: 25px 15px; }
+            .modal-header h3 { font-size: 1.3rem; }
+            .em-btn { padding: 14px 20px; font-size: 1rem; width: 100%; }
+            .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; font-size: 0.95rem; }
+            header { height: 70px; }
+            .header-logo { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="header-logo">
+        <img src="images/logo.png" alt="Earth Metals" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#aboutus">About Us</a></li>
+        <li><a href="index.html#auction">Auction</a></li>
+        <li><a href="index.html#contactus">Contact Us</a></li>
+    </ul>
+</header>
+
+<main id="main-content">
+    <div class="entry-wrapper">
+        <!-- Left panel -->
+        <div class="entry-panel-left">
+            <div class="left-content hero-content-wrapper">
+                <div>
+                    <h2 class="hero-title">Earth Metals</h2>
+                    <p class="hero-desc">Access to quality commercial vehicles, equipment and qualified buyers</p>
+                    
+                    <div class="hero-feature-list">
+                        <div class="hero-feature-item">
+                            <span class="iconify" data-icon="mdi:check-circle-outline"></span>
+                            <p>Secure access to structured listings</p>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="iconify" data-icon="mdi:trending-up"></span>
+                            <p>Active opportunities</p>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="iconify" data-icon="mdi:routes"></span>
+                            <p>Direct transaction routing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-support">
+                    <p>
+                        <span class="iconify" data-icon="mdi:information-outline"></span>
+                        Submit your details to be routed into the correct buying, selling, or transaction workflow.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right panel (Selection) -->
+        <div class="entry-panel-right">
+            <h3>Get Started</h3>
+            <p class="subtitle">Select your primary goal to continue into our network.</p>
+
+            <div class="intent-options">
+                <button class="intent-btn" onclick="openModal('Buy Equipment')">
+                    <div class="intent-content">
+                        <span class="intent-title">Buy Equipment</span>
+                        <span class="intent-desc">I'm looking to source vehicles or machinery</span>
+                    </div>
+                    <span class="iconify intent-icon" data-icon="mdi:truck"></span>
+                </button>
+
+                <button class="intent-btn" onclick="openModal('Sell Equipment')">
+                    <div class="intent-content">
+                        <span class="intent-title">Sell Equipment</span>
+                        <span class="intent-desc">I have assets I want to sell through Earth Metals</span>
+                    </div>
+                    <span class="iconify intent-icon" data-icon="mdi:tag-multiple"></span>
+                </button>
+
+                <button class="intent-btn" onclick="openModal('Both Buy & Sell')">
+                    <div class="intent-content">
+                        <span class="intent-title">Both Buy & Sell</span>
+                        <span class="intent-desc">I am interested in both acquiring and liquidating</span>
+                    </div>
+                    <span class="iconify intent-icon" data-icon="mdi:swap-horizontal"></span>
+                </button>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-size: 0.95rem; color: #666;">
+                Already have an account? <a href="login.html" style="color: #41A648; font-weight: 600; text-decoration: none;">Login instead</a>
+            </p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 Earth Metals. All rights reserved. <br>
+    <span style="font-size: 0.8rem; margin-top: 8px; display: inline-block;">Southern Africa's Specialist B2B Asset Marketplace</span>
+</footer>
+
+<!-- MODAL FOR LEAD CAPTURE -->
+<div class="modal-overlay" id="leadModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">
+            <span class="iconify" data-icon="mdi:close" style="font-size: 1.2rem;"></span>
+        </button>
+
+        <div id="formContainer">
+            <div class="modal-header">
+                <div class="intent-badge" id="intentBadge">Intent</div>
+                <h3>Let's get your details</h3>
+                <p>A specialist will contact you to proceed.</p>
+            </div>
+
+            <form id="leadForm" onsubmit="submitForm(event)">
+                <input type="hidden" id="userIntent" name="intent" value="">
+                <input type="hidden" id="equipmentCategories" name="categories" value="">
+
+                <div class="form-grid">
+                    <!-- Personal Details -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Tapiwa Makore" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Company Name <span>(Optional)</span></label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Your Company Ltd">
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+27 XX XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="phone">Phone Number <span>(Optional - if different from WhatsApp)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+                    </div>
+
+                    <!-- Preferences -->
+                    <div class="form-group">
+                        <label for="contactMethod">Preferred Contact Method</label>
+                        <select id="contactMethod" name="contactMethod" required>
+                            <option value="" disabled selected>Select method</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Phone Call">Phone Call</option>
+                            <option value="Email">Email</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgency">Availability / Urgency</label>
+                        <select id="urgency" name="urgency" required onchange="handleUrgencyChange(this)">
+                            <option value="" disabled selected>Select timeline</option>
+                            <option value="Available now">Available now (Urgent)</option>
+                            <option value="Today">Today</option>
+                            <option value="This week">This week</option>
+                            <option value="Flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <!-- Equipment Categories -->
+                    <div class="form-group full-width">
+                        <label>Equipment Category <span>(Select all that apply)</span></label>
+                        <div class="equipment-options">
+                            <div class="equip-chip" onclick="toggleChip(this)">Commercial Vehicles</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Construction Equipment</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Mining Equipment</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Agricultural Equipment</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Industrial Machinery</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Parts & Components</div>
+                            <div class="equip-chip" onclick="toggleChip(this)">Not sure yet</div>
+                        </div>
+                    </div>
+
+                    <!-- Optional Notes -->
+                    <div class="form-group full-width">
+                        <label for="notes">Notes <span>(Optional)</span></label>
+                        <textarea id="notes" name="notes" placeholder="What exactly are you looking to buy or sell?"></textarea>
+                    </div>
+
+                    <div class="form-group full-width" style="margin-top: 10px;">
+                        <button type="submit" class="em-btn em-btn-primary" id="submitBtn">Submit Request</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="successContainer" class="success-message">
+            <span class="iconify success-icon" data-icon="mdi:check-circle"></span>
+            <h3>Request Received!</h3>
+            <p>Your details have been submitted securely. An Earth Metals specialist will review your information and contact you shortly to proceed.</p>
+            <button class="em-btn em-btn-primary" onclick="closeAndReset()">Back to Home</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // State management
+    let selectedCategories = new Set();
+    let isSubmitting = false;
+
+    // Modal logic
+    function openModal(intent) {
+        document.body.classList.add('modal-open');
+        document.getElementById('userIntent').value = intent;
+        
+        const badge = document.getElementById('intentBadge');
+        badge.textContent = intent;
+        
+        // Adjust badge styling based on intent
+        if(intent === 'Buy Equipment') {
+            badge.style.backgroundColor = '#e6f0fa';
+            badge.style.color = '#1b6eb0';
+        } else if(intent === 'Sell Equipment') {
+            badge.style.backgroundColor = '#fdf0e6';
+            badge.style.color = '#c76e22';
+        } else {
+            badge.style.backgroundColor = '#e6f6e7';
+            badge.style.color = '#2d7a33';
+        }
+    }
+
+    function closeModal() {
+        if (isSubmitting) return; // Prevent close during submit
+        document.body.classList.remove('modal-open');
+    }
+
+    // Category chips selection
+    function toggleChip(element) {
+        const value = element.textContent;
+        if (selectedCategories.has(value)) {
+            selectedCategories.delete(value);
+            element.classList.remove('selected');
+        } else {
+            selectedCategories.add(value);
+            element.classList.add('selected');
+        }
+        document.getElementById('equipmentCategories').value = Array.from(selectedCategories).join(', ');
+    }
+
+    function handleUrgencyChange(selectElement) {
+        // Just visual cue or hidden logic hook for "HOT LEAD" tagging
+        // Backend handles actual tagging, but we send the raw value
+    }
+
+    function submitForm(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('submitBtn');
+        isSubmitting = true;
+        btn.innerHTML = '<span class="iconify" data-icon="eos-icons:loading" style="font-size:1.2rem; vertical-align:middle; margin-right:8px;"></span> Submitting...';
+        btn.disabled = true;
+
+        // Collect Form Data
+        const formData = new FormData(document.getElementById('leadForm'));
+        const data = Object.fromEntries(formData.entries());
+        
+        // Ensure categories are captured even if none selected (though maybe optional)
+        data.categories = Array.from(selectedCategories).join(', ');
+
+        // Add HOT LEAD tag check locally (optional representation)
+        if(data.urgency === 'Available now') {
+            data.isHotLead = true;
+        }
+
+        // Simulate API call / processing delay
+        setTimeout(() => {
+            console.log("Lead Captured:", data);
+            
+            // Show Success State
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('successContainer').style.display = 'block';
+            
+            isSubmitting = false;
+        }, 1500);
+    }
+
+    function closeAndReset() {
+        closeModal();
+        
+        // Reset form after closing animation
+        setTimeout(() => {
+            document.getElementById('leadForm').reset();
+            selectedCategories.clear();
+            document.querySelectorAll('.equip-chip').forEach(c => c.classList.remove('selected'));
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('successContainer').style.display = 'none';
+            
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = 'Submit Request';
+            btn.disabled = false;
+        }, 400);
+    }
+</script>
+
+</body>
+</html>

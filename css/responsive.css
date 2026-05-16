@@ -1,0 +1,385 @@
+/* 
+======================================================
+EARTH METALS - RESPONSIVENESS & MOBILE UX PASS
+======================================================
+This stylesheet strictly handles responsive overrides,
+layout behaviors, and touch-friendly UX improvements
+without altering the core visual design system.
+======================================================
+*/
+
+/* -------------------------------------------
+   GLOBAL DEFAULTS & SMOOTH SCROLLING
+------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* -------------------------------------------
+   FLUID TYPOGRAPHY & READABILITY
+------------------------------------------- */
+@media (max-width: 991px) {
+    h1 { font-size: 2rem !important; line-height: 1.2 !important; }
+    h3 { font-size: 22px !important; line-height: 1.3 !important; }
+    .hero_sub { font-size: 1.1rem !important; }
+}
+
+@media (max-width: 767px) {
+    h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
+    h3 { font-size: 20px !important; line-height: 1.3 !important; }
+    .hero_sub { font-size: 1rem !important; line-height: 1.5 !important; }
+    
+    /* Global body text standardisation for mobile */
+    p, span, li, a, .accordion-button { font-size: 16px !important; line-height: 1.6 !important; }
+    
+    /* Except FAQs which are inside h4 */
+    h4 { font-size: 16px !important; line-height: 1.5 !important; }
+}
+
+/* -------------------------------------------
+   SECTION SPACING (VERTICAL RHYTHM)
+------------------------------------------- */
+@media (max-width: 991px) {
+    .pad_top_100 { padding-top: 80px !important; }
+    .pad_bottom_100, .pd_bottom_60 { padding-bottom: 50px !important; }
+    .grouping { padding-top: 60px !important; padding-bottom: 60px !important; }
+}
+
+@media (max-width: 767px) {
+    .pad_top_100 { padding-top: 60px !important; }
+    .pad_bottom_100 { padding-bottom: 60px !important; }
+    .pd_bottom_60 { padding-bottom: 40px !important; }
+    .grouping { padding-top: 40px !important; padding-bottom: 40px !important; }
+}
+
+/* -------------------------------------------
+   HERO SECTION RESPONSIVENESS
+------------------------------------------- */
+@media (max-width: 991px) {
+    /* Stack Hero content centrally */
+    header .row { flex-direction: column; text-align: center; }
+    header .col-lg-5, header .col-lg-7 { width: 100% !important; max-width: 100% !important; }
+    
+    /* Ensure the search block is 100% width on tablet/mobile */
+    .hero_search_block {
+        width: 100% !important;
+        margin: 0 auto 30px auto !important;
+    }
+    
+    .hero_search_block form {
+        flex-direction: column !important;
+    }
+    
+    .hero_search_block .hero_search_field,
+    .hero_search_block .prim_btn {
+        width: 100% !important;
+        border-radius: 8px !important;
+        margin-bottom: 10px;
+    }
+
+    /* Hide the phone mockup on mobile to save vertical space if it breaks layout, 
+       or just scale it properly */
+    .phone_ui_mockup {
+        width: 100% !important;
+        max-width: 350px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+/* -------------------------------------------
+   GRID COLLAPSING & COMPONENT FIXES
+------------------------------------------- */
+/* Feature Cards (Optimised Value, etc) */
+@media (max-width: 767px) {
+    .mit_border {
+        border-right: none !important;
+        border-bottom: 1px solid #eee !important;
+        padding-bottom: 20px !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+/* How It Works - Remove fixed height on mobile so content doesn't overflow */
+@media (max-width: 991px) {
+    .gray_50_blocks {
+        height: auto !important;
+        min-height: auto !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 25px 15px !important;
+    }
+    .gray_50_blocks h2 {
+        margin-right: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    /* Ensure images inside cards scale properly */
+    .gray_50_blocks img {
+        height: auto !important;
+        max-height: 250px !important;
+    }
+}
+
+/* Ensure Auction Cards stack properly without cutting off */
+@media (max-width: 767px) {
+    .gray_50_blocks h4 {
+        min-height: auto !important;
+        -webkit-line-clamp: unset !important;
+    }
+    .gray_50_blocks p {
+        min-height: auto !important;
+        -webkit-line-clamp: unset !important;
+    }
+}
+
+/* -------------------------------------------
+   MOBILE HEADING ALIGNMENT RULE
+------------------------------------------- */
+@media (max-width: 767px) {
+    /* All headings center-aligned on mobile */
+    h2, h3, h5, .sub_head_title {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* EXCEPTION: Hero section must remain unchanged (left-aligned) */
+    #home h1, #home h2, #home h3, #home .sub_head_title, #home p {
+        text-align: left !important;
+    }
+}
+
+/* -------------------------------------------
+   BUTTONS & TOUCH TARGETS (UX PASS)
+------------------------------------------- */
+@media (max-width: 767px) {
+    .prim_btn {
+        width: auto !important;
+        min-height: 48px !important;
+        padding: 12px 24px !important; /* Larger thumb target */
+        font-size: 16px !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact_form_btn, .hero_search_block .prim_btn {
+        width: 100% !important;
+        min-height: 48px !important;
+        padding: 12px 20px !important; 
+        font-size: 16px !important;
+        display: block !important;
+        text-align: center !important;
+    }
+    
+    /* Form Inputs */
+    input[type="text"], input[type="email"], textarea, select.form-select {
+        min-height: 48px !important;
+        font-size: 16px !important; /* Prevents iOS zoom */
+        padding: 10px 15px !important;
+    }
+}
+
+/* -------------------------------------------
+   NAVIGATION & HEADER
+------------------------------------------- */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #ffffff;
+        position: absolute;
+        top: 80px; /* Adjust based on exact header height */
+        left: 0;
+        width: 100%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        padding: 20px;
+        z-index: 1000;
+        display: none; /* Handled by JS toggleClass("show_menu") */
+    }
+    .navbar-collapse.show_menu {
+        display: block !important;
+    }
+    .navbar-nav {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .nav-item {
+        margin-left: 0 !important;
+        margin-bottom: 15px;
+    }
+    .nav-link {
+        font-size: 18px !important;
+        padding: 10px 0 !important;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .contact_btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        display: block;
+    }
+}
+
+/* -------------------------------------------
+   CONTACT SECTION ALIGNMENT
+------------------------------------------- */
+@media (max-width: 767px) {
+    .contact-img {
+        position: relative !important;
+        height: auto !important;
+        max-height: 300px !important;
+        margin-bottom: 30px !important;
+    }
+    .col-md-7.col-sm-12 > .h-100.position-relative.w-100 {
+        height: auto !important;
+    }
+}
+
+/* -------------------------------------------
+   GLOBAL TYPOGRAPHY CONSISTENCY
+------------------------------------------- */
+h1, h2, h3, h4, h5, h6, p, span, a, label, input, button, textarea {
+    font-family: "Metrophobic", sans-serif !important;
+}
+
+/* CACHE BUSTER: 1.2 */
+/* Removed global override to restore desktop sizing */
+
+@media (max-width: 767px) {
+    body h2.sub_head_title, 
+    body .sub_head_title.main_font, 
+    body .sub_head_title.font_700,
+    section .sub_head_title,
+    .grouping .sub_head_title,
+    .mobile_25px {
+        font-size: 25px !important;
+        line-height: 30px !important;
+        font-weight: 700 !important;
+        font-family: "Metrophobic", sans-serif !important;
+    }
+
+    .mobile_18px {
+        font-size: 18px !important;
+        line-height: 24px !important;
+    }
+}
+
+
+
+/* -------------------------------------------
+   STATISTICS BANNER ALIGNMENT & TYPOGRAPHY
+------------------------------------------- */
+.stat_val {
+    font-size: 4rem !important;
+    font-variant-numeric: lining-nums;
+    font-weight: 700 !important;
+}
+.stat-number {
+    font-size: 1.2em !important; /* Bump numbers to match optical size of M */
+    font-weight: 700 !important;
+}
+.stat_label {
+    font-size: 1.2rem !important;
+}
+
+@media (max-width: 991px) {
+    .stat_val { font-size: 3.2rem !important; }
+    .stat-number { font-size: 1.1em !important; }
+    .stat_label { font-size: 1.1rem !important; }
+}
+
+@media (max-width: 767px) {
+    .site_banner .row {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    .site_banner .col-6 {
+        margin-bottom: 30px;
+    }
+    .stat_val { font-size: 2.8rem !important; }
+    .stat-number { font-size: 1.1em !important; }
+    .stat_label { font-size: 1.1rem !important; }
+}
+
+/* -------------------------------------------
+   MOBILE APP SECTION REFINEMENT
+------------------------------------------- */
+@media (max-width: 767px) {
+    #app-promo-section {
+        padding: 60px 0 !important;
+    }
+    #app-promo-section .sub_head_title {
+        text-align: center !important;
+    }
+    #app-promo-section .d-flex.flex-wrap {
+        justify-content: center !important;
+    }
+    #app-promo-section .col-md-5 {
+        margin-top: 40px;
+    }
+    /* Fix phone mockup scaling on small screens */
+    #app-promo-section .col-md-5 div[style*="transform: scale(0.75)"] {
+        transform: scale(0.65) !important;
+        margin-bottom: -280px !important;
+    }
+}
+
+/* -------------------------------------------
+   MARQUEE TOUCH OPTIMIZATION
+------------------------------------------- */
+@media (max-width: 767px) {
+    .marquee-wrapper {
+        overflow: hidden !important;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    
+    .marquee-content {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    
+    .marquee-content span {
+        font-size: 14px !important;
+        padding: 6px 12px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .head_CTA > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .head_CTA .prim_btn {
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* FOOTER MOBILE STACKING */
+    .footer_lower {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 15px;
+    }
+    .footer_nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+    .subscribe_form {
+        width: 100% !important;
+        justify-content: flex-start !important;
+        margin-top: 20px;
+    }
+}

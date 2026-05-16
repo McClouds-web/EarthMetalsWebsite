@@ -1,0 +1,821 @@
+.inp_small {
+    width: 10px;
+}
+
+.redtext a {
+    color: #203361;
+}
+
+.orange_row td {
+    background-color: rgba(255, 153, 0, 0.27) !important;
+}
+
+.yellow_row td {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+}
+
+.bright_orange_row td {
+    background-color: rgba(232, 112, 27, .5) !important;
+}
+
+.table tbody tr.success>td {
+    background-color: #D1FADF !important;
+}
+
+.table tbody tr.win_bid_ind>td {
+    background-color: #D1FADF !important;
+}
+
+.table tbody tr.stc>td {
+    background-color: #C6E0E0 !important;
+}
+
+.table tbody tr.stc_bid_ind>td {
+    background-color: #C6E0E0 !important;
+}
+
+.table tbody tr.error>td {
+    background-color: #FEE4E2 !important;
+}
+
+.table tbody tr.lose_bid_ind>td {
+    background-color: #FEE4E2 !important;
+}
+
+
+.table tbody tr.warning_perc>td {
+    background-color: #e8701b;
+}
+
+#valuation-grid table tr:nth-child(2n) td {
+    background-color: #f7f8f9;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.nav-tabs>li>a,
+.nav-pills>li>a {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+    margin-right: 2px;
+    line-height: 14px;
+}
+
+.damage_images {
+    max-width: 100%;
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.verified_logo {
+    height: 48px;
+    width: 35px;
+    background-repeat: no-repeat;
+}
+
+.green {
+    color: #0ebc00 !important;
+}
+
+.summary_container.rtlactive {
+    right: unset !important;
+    left: 45px;
+    top: 95px;
+}
+
+.rtlactive .summary-row {
+    direction: ltr !important;
+}
+
+.dropdown-menu .divider {
+    margin: 4px 12px !important;
+}
+
+.dropdown-menu li a i {
+    padding-right: 8px;
+}
+
+table.offer-table th {
+    font-size: 12px;
+}
+
+#trader-offer-modal {
+    width: 700px;
+}
+
+@media screen and (max-width: 768px) {
+    #trader-offer-modal {
+        width: 95%;
+    }
+}
+
+table.arabic td {
+    text-align: right;
+}
+
+.datepicker-days {
+    max-width: 215px;
+}
+
+.datepicker.datepicker-dropdown.dropdown-menu {
+    max-width: 215px;
+}
+
+.datepicker.datepicker-rtl.dropdown-menu {
+    right: unset !important;
+}
+
+
+/* DO-7329 */
+
+.modal.deal_assist {
+     width: 400px !important;
+     margin-left: -200px !important;
+}
+
+.deal_assist .modal-dialog {
+  width: 345px;
+  margin: auto;
+}
+
+.deal_assist .modal-header {
+    padding: 0;
+    border: 0;
+}
+
+.deal_assist .modal-dialog {
+   padding: 32px 24px 24px 24px;
+}
+
+.deal_assist .modal-body {
+    padding: 0;
+}
+
+.deal_assist .title_head {
+    padding-bottom: 24px;
+}
+
+.deal_assist .title_head h4 {
+    color:  #101828;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%; 
+}
+
+.deal_assist .title_head h6 {
+    color:  #344054;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%; 
+}
+
+.deal_assist .deal_body {
+    padding-bottom: 32px;
+}
+
+.deal_assist .deal_body p.fnt_16 {
+    color: #101828;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 0;
+    padding-bottom: 8px;
+}
+
+.deal_assist .deal_body p {
+    color: #475467;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px; 
+}
+
+.dual_block {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem
+}
+
+.dual_block p {
+    color:  #475467;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    margin-bottom: 0;
+}
+
+a.deal_assit_btn {
+    display: flex;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #4B50FF;
+    background: #4B50FF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+a.deal_assit_btn:hover {
+    border: 1px solid #3538B3;
+    background: #3538B3;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.deal_assist_sidebar {
+    margin-top: 24px;
+    display: flex;
+    padding: 32px 24px 24px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid #EAECF0;
+    background: #F9FAFB;
+}
+ 
+.deal_assist_sidebar h5 {
+    color: #101828;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.deal_assist_sidebar p {
+    color:  #475467;
+    font-size: 14px;
+}
+
+div#contentarea {
+    margin-top: 24px;
+}
+
+
+/* Seller Fica Modal Styling */
+
+.modal.seller_details {
+    width: 460px !important;
+    margin-left: -230px !important;
+}
+
+.seller_details .modal-body {
+    padding: 24px 24px 20px 24px;
+}
+
+.seller_details .modal-header {
+    padding: 0 !important;
+    border-bottom: 0 !important;
+}
+
+h3.modal-title {
+    color:  #101828;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+}
+
+.seller_details p {
+    color:  #101828;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 16px;
+}
+
+.seller_details a {
+    color: #155EEF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    text-decoration-line: underline;
+}
+
+.seller_details button.full_button {
+    display: flex;
+    padding: 6px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid  #1373CC;
+    background:  #1373CC;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.seller_details .text-center a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color:  #0E5699;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    gap: 8px;
+    padding: 6px 16px;
+    margin-top: 10px;
+}
+
+.seller_details .modal-footer {
+    background: #FFFFFF;
+    display: flex;
+    padding: 16px 16px 0 24px;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+    text-align: left;
+    gap: 8px;
+}
+
+.seller_details .modal-footer p {
+    color:  #344054;
+    font-size: 12px !important;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.deal_assist_sidebar a {
+    color: #4B50FF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+
+    .modal.deal_assist {
+        width: 320px !important;
+        margin-left: calc(-7px + (200 - -7) * ((100vw - 320px) / (767 - 320))) !important; 
+    }
+
+    .seller_details .modal-footer a {
+        font-size: 12px !important;
+        font-weight: 400;
+        line-height: 130%;
+    }
+
+}
+
+/* DO-7239 */
+
+#stock-note-modal {
+    width: 530px !important;
+    margin-left: -280px !important;
+}
+
+#note-modal {
+    width: 530px !important;
+    margin-left: -280px !important;
+}
+
+.modal-body.no_padding {
+    padding: 0;
+}
+
+.note_code {
+    padding: 24px 24px 0px 24px;
+    border-bottom: 1px solid #D0D5DD;
+}
+
+h6.name_note {
+    color: #1D2939;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 110%;
+    margin-bottom: 6px;
+}
+
+p.noted_date {
+    color: #475467;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 110%;
+    margin-bottom: 8px;
+}
+
+p.note_comment {
+    color: #1D2939;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+}
+
+#note-form {
+    padding: 24px 24px 0 24px;
+}
+
+#note-form textarea {
+    width: 100%;
+    max-width: 468px !important;
+}
+
+.grid-view ul.dropdown-menu.dropdown-menu-right {
+    text-align:left;
+}
+
+a.toggle-actions {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body.no_padding form#note-form {
+    padding: 0;
+}
+
+.comments_group {
+    padding: 24px 24px 0;
+}
+
+/* DO-7407 */
+
+@import url('css2_1.css');
+
+.updated_header h3 {
+    color: #101828;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 38px; /* 126.667% */
+}
+
+.head_button p {
+    color: #475467;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 20.8px */
+}
+
+.head_button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.updated_header {
+    margin-bottom: 16px;
+}
+
+.new_button a {
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid  #1373CC;
+    background: #1373CC;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    text-shadow: none;
+}
+
+.new_button_block {
+    display: block;
+    width: 100%;
+}
+
+.new_button_block button {
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid  #1373CC;
+    background: #1373CC;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    text-shadow: none;
+    width: 100%;
+}
+
+.updated_table .grid-view table{
+    border-radius: 8px;
+    border: 1px solid  #D0D5DD;
+    background: #FFF;
+}
+
+.updated_table .grid-view table thead th{
+    border-top: 1px solid #F0F0F0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    background:  #FCFCFD;
+    padding: 8px 16px;
+    border: 0;
+}
+
+.updated_table .grid-view table tbody td {
+    border-bottom: 1px solid #EAECF0 !important;
+    padding: 8px 16px;
+    border: 0;
+}
+
+.location_create {
+    display: flex;
+    width: 332px;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 42px;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    background: #F9FAFB;
+}
+
+.updated_header h4{
+    color: #101828;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 28.8px */
+}
+
+.location_create input{
+    display: flex;
+    padding: 10px 14px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.max-320.modal {
+    max-width: 320px;
+    margin-left: -160px !important;
+}
+
+.max-320.modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0;
+}
+
+.max-320.modal .modal-body {
+    padding: 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+button.full_blue {
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid #1373CC;
+    background: #1373CC;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px; 
+    margin-bottom: 12px;
+    font-family: "Roboto", sans-serif;
+}
+
+button.full-white {
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    color: #344054;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 24px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* DO-7519 */
+
+.modal-header a.close {
+    font-size: 40px;
+    font-weight: 400;
+    position:absolute;
+    right: 20px;
+}
+
+.modal-header button.close span {
+    font-size: 40px;
+    font-weight: 400;
+    position:absolute;
+    right: 20px;
+}
+
+/* DO-7536 */
+.location_create select {
+    display: flex;
+    padding: 10px 14px;
+    width: 100%;
+    height: auto;
+}
+
+/* DO-7473 hide checkboxes on quick action badges */
+
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #111827;
+}
+
+.switch input {
+    display: none
+}
+
+.slider {
+    width: 36px;
+    height: 20px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    position: relative;
+    transition: .15s;
+    border: 1px solid #d1d5db;
+}
+
+.slider:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    top: 1px;
+    left: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+    transition: .15s;
+}
+
+.switch input:checked+.slider {
+    background: #2563eb;
+    border-color: #1d4ed8
+}
+
+.switch input:checked+.slider:after {
+    left: 19px
+}
+
+#contentarea.arabic li.first a{
+    border-radius: 0 6px 6px 0;
+}
+
+#contentarea.arabic li.last a{
+    border-radius: 6px 0 0 6px ;
+}
+
+#contentarea.arabic li.next a {
+    transform: rotate(180deg);
+}
+
+#contentarea.arabic li.previous a {
+    transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 768px) {
+    #contentarea.arabic li.next a {
+        transform: rotate(0deg);
+    }
+
+    #contentarea.arabic li.previous a {
+        transform: rotate(0deg);
+    }
+
+    .pagination-custom li.previous a::after {
+        content: "Previous";
+        padding-left: 12px;
+    }
+
+    .pagination-custom li.next a::before {
+        content: "Next";
+        padding-right: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.previous a::after {
+        content: "Previous";
+        padding-left: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.next a::before {
+        content: "Next";
+        padding-right: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.previous a::after {
+        content: "";
+        padding-left: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.next a::before {
+        content: "";
+        padding-right: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.previous a::before {
+        content: "'السابق";
+        padding-left: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom li.next a::after{
+        content: "التالي";
+        padding-right: 12px;
+    }
+
+    #contentarea.arabic .pagination-custom {
+        flex-direction: row-reverse;
+    }
+
+    .max-320.modal {
+        max-width: 320px;
+        margin-left: auto !important;
+        margin-right: auto;
+    }
+
+    .modal-backdrop {
+        position: absolute;
+    }
+
+}
+
+#contentarea.arabic a.close {
+    left: 20px;
+    right: unset;
+}
+
+div#cue-widget-launcher {
+    bottom: 75px !important;
+}
+
+/* Utility spacing */
+.pb-2pct {
+    padding-bottom: 2%;
+}
+
+body.rtl.active li.nav-language-toggle-container {
+    margin-left: 50px;
+}
+
+.terms_text {
+    display: block;
+}
+
+.arabic .span4 {
+    float:right
+}
+
+.custom-control.custom-radio .custom-control-input {
+    height: auto;
+}
+
+/* Bid Modal Height */
+
+.modal-body {
+    max-height: 500px;
+}
